@@ -12,7 +12,7 @@ import { useDispatch } from 'react-redux';
 
 export const App = () => {
   const [contacts, setContacts] = useState(
-    useSelector(state => state.value.contacts)
+    useSelector(state => state.contacts.contacts)
   );
   const [filters, setFilter] = useState(
     useSelector(state => state.filter.filter)
