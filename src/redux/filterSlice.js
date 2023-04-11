@@ -22,7 +22,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const filterSlice = createSlice({
   name: 'filter',
   initialState: {
-    filter: '',
+    filterState: '',
   },
   reducers: {
     filterChange(state, action) {
@@ -32,4 +32,5 @@ export const filterSlice = createSlice({
 });
 
 // export const { add, del } = contactSlice.actions;
+// export const filterReducer = filterSlice.reducer;
 export const { filterChange } = filterSlice.actions;

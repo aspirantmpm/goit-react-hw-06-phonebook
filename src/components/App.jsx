@@ -15,7 +15,7 @@ export const App = () => {
     useSelector(state => state.contacts.contacts)
   );
   const [filters, setFilter] = useState(
-    useSelector(state => state.filter.filter)
+    useSelector(state => state.filter.filterState)
   );
   const dispatch = useDispatch();
   const addContact = ({ name, number }) => {

@@ -32,4 +32,5 @@ export const contactSlice = createSlice({
 // });
 
 export const { add, del } = contactSlice.actions;
+// export const contactsReducer = contactSlice.reducer;
 // export const { filterChange } = filterSlice.actions;
