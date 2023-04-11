@@ -11,6 +11,10 @@ export const valueSlice = createSlice({
     add(state, action) {
       state.contacts.push(action.payload);
     },
+    del(state, action) {
+      const index = state.contacts.findIndex(contact => contact.id === action.payload);
+      state.contacts.splice(index, 1);
+    },
   },
 });
 

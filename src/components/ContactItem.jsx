@@ -1,7 +1,10 @@
 import propTypes from 'prop-types';
 import { Item, Button } from './GlobalStyle';
+// import { useDispatch } from 'react-redux/es/exports';
+
 
 export const ContactItem = ({ id, name, number, deleteContact }) => {
+  // const dispatch = useDispatch();
   return (
     <Item>
       <span>{name}:</span>
