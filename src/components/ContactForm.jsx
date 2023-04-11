@@ -1,20 +1,8 @@
-// import React, { Component } from 'react';
-// import { useDispatch } from 'react-redux';
 import React, { useState } from 'react';
 import { Formik } from 'formik';
-// import { nanoid } from 'nanoid';
-// import propTypes from 'prop-types';
 import { MainForm, Button, Label, Input } from './GlobalStyle';
-// import { add } from '../redux/valueSlise';
 
 export const ContactForm = ({ onSubmit }) => {
-  // const dispatch = useDispatch();
-  // const handleSubmit = ({ name, number }, { resetForm }) => {
-  //   const contact = { id: nanoid(), name, number };
-  //   this.props.onSubmit(contact);
-  //   resetForm();
-  // };
-
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -28,15 +16,11 @@ export const ContactForm = ({ onSubmit }) => {
     reset();
   };
 
-  // dispatch(add({ name, number } ))    
-  // console.log(dispatch(add(name, number)));
-
   const reset = () => {
     setName('');
     setNumber('');
   };
 
-  // render() {
   return (
     <Formik initialValues={{ name: '', number: '' }}>
       <MainForm autoComplete="off" onSubmit={handleSubmit}>
@@ -73,9 +57,4 @@ export const ContactForm = ({ onSubmit }) => {
     </Formik>
   );
 };
-// }
 
-// ContactForm.propTypes = {
-//   onSubmit: propTypes.func.isRequired,
-//   contacts: propTypes.arrayOf(propTypes.object),
-// };

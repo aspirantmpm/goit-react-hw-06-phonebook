@@ -1,4 +1,3 @@
-// import { Component } from 'react';
 import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { ContactForm } from './ContactForm';
@@ -39,7 +38,6 @@ export const App = () => {
 
   const changeFilter = event => {
     setFilter(event.currentTarget.value);
-    console.log(event.currentTarget.value);
     dispatch(filterChange(event.currentTarget.value));
   };
 
@@ -58,8 +56,7 @@ export const App = () => {
       <ContactFind onFilter={changeFilter} filter={filters} />
       <ContactList
         filterContacts={filterContacts()}
-        deleteContact={deleteContact}
-        // dispatch={() => useDispatch(valueSlice())}
+        deleteContact={deleteContact}     
       />
     </Section>
   );

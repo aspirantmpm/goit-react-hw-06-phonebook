@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-// import { nanoid } from 'nanoid';
 
 export const contactSlice = createSlice({
   name: 'value',
@@ -19,18 +18,5 @@ export const contactSlice = createSlice({
   },
 });
 
-// export const filterSlice = createSlice({
-//   name: 'filter',
-//   initialState: {
-//     filter: '',
-//   },
-//   reducers: {
-//     filterChange(state, action) {
-//       return action.payload;
-//     },
-//   },
-// });
-
 export const { add, del } = contactSlice.actions;
-// export const contactsReducer = contactSlice.reducer;
-// export const { filterChange } = filterSlice.actions;
+
