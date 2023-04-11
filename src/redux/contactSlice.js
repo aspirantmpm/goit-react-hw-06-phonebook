@@ -19,17 +19,17 @@ export const contactSlice = createSlice({
   },
 });
 
-export const filterSlice = createSlice({
-  name: 'filter',
-  initialState: {
-    filter: '',
-  },
-  reducers: {
-    filterChange(state, action) {
-      return action.payload;
-    },
-  },
-});
+// export const filterSlice = createSlice({
+//   name: 'filter',
+//   initialState: {
+//     filter: '',
+//   },
+//   reducers: {
+//     filterChange(state, action) {
+//       return action.payload;
+//     },
+//   },
+// });
 
 export const { add, del } = contactSlice.actions;
-export const { filterChange } = filterSlice.actions;
+// export const { filterChange } = filterSlice.actions;

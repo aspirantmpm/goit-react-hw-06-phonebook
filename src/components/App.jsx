@@ -6,7 +6,8 @@ import { ContactList } from './ContactList';
 import { ContactFind } from './ContactFind';
 import { Section, Title } from './GlobalStyle';
 import { useSelector } from 'react-redux';
-import { add, del, filterChange } from '../redux/valueSlise';
+import { add, del } from '../redux/contactSlice';
+import { filterChange } from '../redux/filterSlice';
 import { useDispatch } from 'react-redux';
 
 export const App = () => {
