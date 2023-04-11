@@ -6,7 +6,7 @@ import { ContactList } from './ContactList';
 import { ContactFind } from './ContactFind';
 import { Section, Title } from './GlobalStyle';
 import { useSelector } from 'react-redux';
-import { add, del } from '../redux/valueSlise';
+import { add, del, filterChange } from '../redux/valueSlise';
 import { useDispatch } from 'react-redux';
 
 export const App = () => {
@@ -41,6 +41,8 @@ export const App = () => {
 
   const changeFilter = event => {
     setFilter(event.currentTarget.value);
+    console.log(event.currentTarget.value);
+    dispatch(filterChange(event.currentTarget.value));
   };
 
   const filterContacts = () => {

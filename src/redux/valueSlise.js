@@ -15,7 +15,34 @@ export const valueSlice = createSlice({
       const index = state.contacts.findIndex(contact => contact.id === action.payload);
       state.contacts.splice(index, 1);
     },
+      filterChange(state, action) {
+        return action.payload;
+    }
   },
 });
 
-export const { add, del } = valueSlice.actions;
+export const filterSlice = createSlice({
+  name: 'filter',
+  initialState: {
+    contacts: [],
+    filter: '',
+  },
+  reducers: {
+    add(state, action) {
+      state.contacts.push(action.payload);
+    },
+    del(state, action) {
+      const index = state.contacts.findIndex(
+        contact => contact.id === action.payload
+      );
+      state.contacts.splice(index, 1);
+    },
+    filterChange(state, action) {
+      return action.payload;
+    },
+  },
+});
+
+
+
+export const { add, del, filterChange } = valueSlice.actions;
