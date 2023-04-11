@@ -8,16 +8,10 @@ export const valueSlice = createSlice({
     filter: '',
   },
   reducers: {
-    add(state) {
-      state.contacts = [];
-      state.filter = '';
-    },    
-    del(state) {
-      state.contacts = [];
-      state.filter = '';
+    add(state, action) {
+      state.contacts.push(action.payload);
     },
   },
 });
 
 export const { add, del } = valueSlice.actions;
-

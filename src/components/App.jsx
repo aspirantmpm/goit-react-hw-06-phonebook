@@ -6,18 +6,26 @@ import { ContactList } from './ContactList';
 import { ContactFind } from './ContactFind';
 import { Section, Title } from './GlobalStyle';
 import { useSelector } from 'react-redux';
-// import { valueSlice } from '../redux/valueSlise';
+import { add } from '../redux/valueSlise';
+import { useDispatch } from 'react-redux';
 
 export const App = () => {
-  const [contacts, setContacts] = useState(useSelector(state => state.value.contacts));
-  const [filters, setFilter] = useState(useSelector(state => state.value.filter));
-
+  const [contacts, setContacts] = useState(
+    useSelector(state => state.value.contacts)
+  );
+  const [filters, setFilter] = useState(
+    useSelector(state => state.value.filter)
+  );
+  const dispatch = useDispatch();
   const addContact = ({ name, number }) => {
     const newContact = { id: nanoid(), name, number };
 
     contacts.some(contact => contact.name === name)
       ? alert(`${name} is already in your contact list.`, 'OK')
       : setContacts(contacts => [newContact, ...contacts]);
+
+    console.log({ id: nanoid(), name, number });
+    dispatch(add({ id: nanoid(), name, number }));
   };
 
   const deleteContact = contactId => {
@@ -46,7 +54,7 @@ export const App = () => {
       <ContactList
         filterContacts={filterContacts()}
         deleteContact={deleteContact}
-        // dispatch={useDispatch(valueSlice())}
+        // dispatch={() => useDispatch(valueSlice())}
       />
     </Section>
   );
