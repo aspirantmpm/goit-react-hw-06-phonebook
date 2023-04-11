@@ -14,7 +14,7 @@ export const App = () => {
     useSelector(state => state.value.contacts)
   );
   const [filters, setFilter] = useState(
-    useSelector(state => state.value.filter)
+    useSelector(state => state.filter.filter)
   );
   const dispatch = useDispatch();
   const addContact = ({ name, number }) => {
@@ -29,14 +29,11 @@ export const App = () => {
   };
 
   const deleteContact = contactId => {
-    
-    setContacts(contacts =>
-      contacts.filter(contact => contact.id !== contactId),
+    setContacts(
+      contacts => contacts.filter(contact => contact.id !== contactId),
       console.log(contacts),
       dispatch(del(contacts))
     );
-    
-    
   };
 
   const changeFilter = event => {
