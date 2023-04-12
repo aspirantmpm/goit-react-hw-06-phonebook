@@ -1,29 +1,36 @@
 import React, { useState } from 'react';
 import { Formik } from 'formik';
 import { MainForm, Button, Label, Input } from './GlobalStyle';
+import { useSelector, useDispatch } from 'react-redux';
+import { addContact } from '../redux/contactSlice';
+import { getContacts } from '../redux/contactSlice';
+import { nanoid } from 'nanoid';
 
-export const ContactForm = ({ onSubmit }) => {
+export const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
   const onChangeName = e => setName(e.currentTarget.value);
   const onChangeNumber = e => setNumber(e.currentTarget.value);
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    onSubmit({ name, number });
-    
-    reset();
-  };
+  const dispatch = useDispatch();
+  const contacts = useSelector(getContacts);
 
-  const reset = () => {
+  const handleSubmit = event => {
+    const newContact = { id: nanoid(), name, number };
+
+    if (contacts.some(contact => contact.name === name)) {
+      alert(`${name} is already in contacts`);
+      return;
+    }
+    dispatch(addContact(newContact));
     setName('');
     setNumber('');
   };
 
   return (
-    <Formik initialValues={{ name: '', number: '' }}>
-      <MainForm autoComplete="off" onSubmit={handleSubmit}>
+    <Formik initialValues={{ name: '', number: '' }} onSubmit={handleSubmit}>
+      <MainForm autoComplete="off">
         <div>
           <Label htmlFor="name">Name</Label>
           <div>
@@ -57,4 +64,3 @@ export const ContactForm = ({ onSubmit }) => {
     </Formik>
   );
 };
-

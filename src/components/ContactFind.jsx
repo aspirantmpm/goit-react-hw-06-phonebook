@@ -1,7 +1,15 @@
-import propTypes from 'prop-types';
 import { Find, FindInput, Label } from './GlobalStyle';
+import { useDispatch, useSelector } from 'react-redux';
+import { filterContact, getFilter } from '../redux/contactSlice';
 
-export const ContactFind = ({ filter, onFilter }) => {
+export const ContactFind = () => {
+  const dispatch = useDispatch();
+
+  const onFilter = useSelector(getFilter);
+
+  const onChange = e => {
+    dispatch(filterContact(e.currentTarget.value));
+  };
   return (
     <Find>
       <Label htmlFor="filter">Find contacts by name</Label>
@@ -9,15 +17,10 @@ export const ContactFind = ({ filter, onFilter }) => {
         <FindInput
           type="text"
           name="filter"
-          value={filter}
-          onChange={onFilter}
+          value={onFilter}
+          onChange={onChange}
         />
       </div>
     </Find>
   );
-};
-
-ContactFind.propTypes = {
-  onFilter: propTypes.func,
-  filter: propTypes.string,
 };
